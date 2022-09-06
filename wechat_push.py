@@ -7,6 +7,7 @@ corp_id = os.environ['CORP_ID']
 corp_secret = os.environ['CORP_SECRET']
 agent_id = os.environ['AGENT_ID']
 
+
 def get_access_token(corp_id, corp_secret):
     resp = requests.get(f'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corp_id}&corpsecret={corp_secret}')
     js = json.loads(resp.text)
