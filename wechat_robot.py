@@ -17,3 +17,4 @@ def wechat_push_text():
 with open('commit_log.md', 'r') as f:
     log = f.read()
     wechat_push_text()
+
