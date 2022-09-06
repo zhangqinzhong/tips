@@ -10,6 +10,7 @@ agent_id = os.environ['AGENT_ID']
 def get_access_token(corp_id, corp_secret):
     resp = requests.get(f'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corp_id}&corpsecret={corp_secret}')
     js = json.loads(resp.text)
+    print(js)
     if js["errcode"] == 0:
         access_token = js["access_token"]
         expires_in = js["expires_in"]
