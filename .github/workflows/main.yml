@@ -19,9 +19,9 @@ jobs:
 
       - name: 3. send commit log to wework ...
         env:
-          CORP_ID: ${{ os.CORP_ID }}
-          CORP_SECRET: ${{ os.CORP_SECRET }}
-          AGENT_ID: ${{ os.AGENT_ID }}
+          CORP_ID: ${{ secrets.CORP_ID }}
+          CORP_SECRET: ${{ secrets.CORP_SECRET }}
+          AGENT_ID: ${{ secrets.AGENT_ID }}
 
         run: |
           echo -e "commit log:\n" > commit_log.md
