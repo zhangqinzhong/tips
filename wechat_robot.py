@@ -6,6 +6,8 @@ def wechat_push_text():
         "msgtype": "text",
         "text": {
             "content": "广州今日天气：29度，大部分多云，降雨概率：60%",
+            "mentioned_list": ["@all"],
+            "mentioned_mobile_list": ["@all"]
         }
     }
     resp = requests.post(f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=410331a5-a18a-4e13-91de-ed04bdd8f48c',
