@@ -28,4 +28,4 @@ jobs:
           echo -e "$(git log -1 --stat)" >> commit_log.md
           log=$(cat commit_log.md)
           python -m pip install requests
-          python ./wechat_push.py
+          python ./wechat_robot.py
