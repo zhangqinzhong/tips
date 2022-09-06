@@ -23,4 +23,4 @@ jobs:
         log=$(cat commit_log.md)
 
         python -m pip install requests
-        python wechat_push.py
+        python main.py
