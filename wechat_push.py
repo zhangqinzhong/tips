@@ -13,8 +13,7 @@ def get_access_token(corp_id, corp_secret):
     print(js)
     if js["errcode"] == 0:
         access_token = js["access_token"]
-        expires_in = js["expires_in"]
-        return access_token, expires_in
+        return access_token
 
 def wechat_push_text(agent_id, access_token, message):
     data = {
@@ -38,5 +37,5 @@ def wechat_push_text(agent_id, access_token, message):
 
 with open('commit_log.md', 'r') as f:
     log = f.read()
-    access_token, expires_in = get_access_token(corp_id, corp_secret)
+    access_token = get_access_token(corp_id, corp_secret)
     wechat_push_text(agent_id=agent_id, access_token=access_token, message=log)
