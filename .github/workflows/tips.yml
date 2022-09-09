@@ -16,3 +16,4 @@ jobs:
           privateKey: ${{ secrets.PRIVATE_KEY }}
           command: 
             'python3 /root/tips_script/wechat_push.py'
+            
