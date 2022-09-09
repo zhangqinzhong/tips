@@ -1,0 +1,32 @@
+name: remote ssh command
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+    # check out the repository
+      - name: Checkout    
+        uses: actions/checkout@v2
+        
+      # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
+      - name: deploy file to server
+        uses: siva1024/scp-deployer@latest 
+        with:  
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.GITHUB_KEY }}
+          source: './wechat_push.py'
+          target: '/root/tips_script'
+        
+      - name: Run SSH command
+        uses: garygrossgarten/github-action-ssh@v0.6.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          privateKey: ${{ secrets.GITHUB_KEY }}
+          command: 
+            'python /root/tips_script/wechat_push.py'
